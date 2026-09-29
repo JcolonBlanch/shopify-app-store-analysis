@@ -1,0 +1,45 @@
+Total Apps =
+DISTINCTCOUNT(apps[app_id])
+
+Total Reviews =
+DISTINCTCOUNT(reviews[review_id])
+
+Average Rating =
+AVERAGE(reviews[rating])
+
+Developer Reply % =
+AVERAGE(reviews[has_developer_reply])
+
+Reviews Previous Period =
+CALCULATE(
+    [Total Reviews],
+    DATEADD(dim_date[Date], -1, MONTH)
+)
+
+Reviews Previous Year =
+CALCULATE(
+    [Total Reviews],
+    SAMEPERIODLASTYEAR(dim_date[Date])
+)
+
+Reviews YoY Change =
+[Total Reviews] - [Reviews Previous Year]
+
+Reviews YoY % =
+DIVIDE(
+    [Reviews YoY Change],
+    [Reviews Previous Year]
+)
+
+Reviews YTD =
+TOTALYTD(
+    [Total Reviews],
+    dim_date[Date]
+)
+
+Reviews MTD =
+TOTALMTD(
+    [Total Reviews],
+    dim_date[Date]
+)
+
