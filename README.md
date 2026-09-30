@@ -8,9 +8,9 @@
 
 ### Key insight
 
-Marketplace review activity is growing quickly, but developer engagement has not kept pace. Review volume reached 3,804 in 2024, up 76.8% from 2,151 in 2023. Only 24.8% of valid reviews received a developer reply.
+Marketplace review activity is growing quickly, but developer engagement has not kept pace. The dashboard's year-over-year KPI is **91.1%**, and 2024 has the highest annual review volume in the series. **25.6%** of valid reviews received a developer reply.
 
-SEO is the highest-volume category with 1,145 reviews. Reviews and Ratings follows with 1,071, and Sales and Conversion has 916. BrilliantPilot Pro is the most-reviewed individual app with 244 reviews. The overall average rating is 4.19 out of 5.
+SEO is the highest-volume category, followed by Reviews and Ratings and Sales and Conversion. BrilliantPilot Pro is the most-reviewed individual app. The overall average rating is 4.19 out of 5.
 
 ### Business impact
 
@@ -33,8 +33,8 @@ SEO and Reviews and Ratings account for the largest review volumes, so improveme
 - Slicers: Category, Year, Has Free Plan
 - Monthly review trend
 - Reviews by category
-- Top-app table
-- Page navigator to Trend Analysis
+- Top apps by review volume bar chart
+- Report-page tabs for navigation to Trend Analysis
 
 ### Trend Analysis
 
@@ -42,7 +42,9 @@ SEO and Reviews and Ratings account for the largest review volumes, so improveme
 - Reviews by year
 - Year-over-year review change
 - Accumulated reviews (YTD)
-- Page navigator to Overview
+- KPI cards for Total Reviews, Previous-Year Reviews, YoY %, and Reviews YTD
+- Year slicer
+- Report-page tabs for navigation back to Overview
 
 ## Data model
 
@@ -93,4 +95,3 @@ shopify-app-store-analysis/
 
 - apps.csv: https://practicum-content.s3.us-west-1.amazonaws.com/datasets/apps.csv
 - reviews.csv: https://practicum-content.s3.us-west-1.amazonaws.com/datasets/reviews.csv
-

@@ -38,7 +38,7 @@ ADDCOLUMNS(
     "Quarter", "Q" & FORMAT([Date], "Q"),
     "Month", FORMAT([Date], "MMMM"),
     "Month Number", MONTH([Date]),
-    "Year-Month", FORMAT([Date], "YYYY-MM")
+    "Year Month", FORMAT([Date], "YYYY-MM")
 )
 ```
 
@@ -58,7 +58,7 @@ Expected KPI results:
 - Total Apps: **500**
 - Total Reviews: **7,980**
 - Average Rating: **4.19**
-- Developer Reply %: **24.8%**
+- Developer Reply %: **25.6%**
 
 ## 7. Build the Overview page
 
@@ -67,17 +67,19 @@ Use a 16:9 canvas and an F-pattern layout.
 1. Add four cards across the top: Total Apps, Total Reviews, Average Rating, Developer Reply %.
 2. Add slicers for `category_name`, `dim_date[Year]`, and `has_free_plan`.
 3. Add a horizontal bar chart with `category_name` and Total Reviews, sorted descending.
-4. Add a line chart with `dim_date[Year-Month]` and Total Reviews.
-5. Add a table with `app_name`, Total Reviews, and Average Rating, sorted by Total Reviews descending.
-6. Add a page navigator to Trend Analysis.
+4. Add a line chart with `dim_date[Year Month]` and Total Reviews.
+5. Add a horizontal bar chart with `app_name` and Total Reviews, sorted by Total Reviews descending.
+6. Use the visible report-page tabs to navigate to Trend Analysis.
 
 ## 8. Build the Trend Analysis page
 
-1. Add cards for Total Reviews, Reviews Previous Year, and Reviews YoY %.
-2. Add a monthly line chart using Total Reviews.
-3. Add an annual column chart using Total Reviews.
-4. Add a line chart for Reviews YTD by month.
-5. Add a page navigator back to Overview.
+1. Add cards for Total Reviews, Reviews Previous Year, Reviews YoY %, and Reviews YTD.
+2. Add a slicer for `dim_date[Year]`.
+3. Add a monthly line chart using Total Reviews.
+4. Add an annual column chart using Total Reviews.
+5. Add a line chart for Reviews YTD by month.
+6. Add a line chart for Reviews YoY % by year.
+7. Use the visible report-page tabs to navigate back to Overview.
 
 ## 9. Validate and export screenshots
 
@@ -88,4 +90,3 @@ Confirm that the unfiltered cards match the expected KPI values above. Capture:
 - `screenshots/model_view.png`
 
 Save the Power BI Desktop file as `report.pbix` in the repository root.
-
