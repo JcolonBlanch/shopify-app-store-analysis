@@ -34,7 +34,7 @@ SEO and Reviews and Ratings account for the largest review volumes, so improveme
 - Monthly review trend
 - Reviews by category
 - Top apps by review volume bar chart
-- Report-page tabs for navigation to Trend Analysis
+- Page Navigator for navigation to Trend Analysis
 
 ### Trend Analysis
 
@@ -44,7 +44,7 @@ SEO and Reviews and Ratings account for the largest review volumes, so improveme
 - Accumulated reviews (YTD)
 - KPI cards for Total Reviews, Previous-Year Reviews, YoY %, and Reviews YTD
 - Year slicer
-- Report-page tabs for navigation back to Overview
+- Page Navigator for navigation back to Overview
 
 ## Data model
 

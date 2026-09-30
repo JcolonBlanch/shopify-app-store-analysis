@@ -69,7 +69,7 @@ Use a 16:9 canvas and an F-pattern layout.
 3. Add a horizontal bar chart with `category_name` and Total Reviews, sorted descending.
 4. Add a line chart with `dim_date[Year Month]` and Total Reviews.
 5. Add a horizontal bar chart with `app_name` and Total Reviews, sorted by Total Reviews descending.
-6. Use the visible report-page tabs to navigate to Trend Analysis.
+6. Add a Page Navigator to navigate to Trend Analysis.
 
 ## 8. Build the Trend Analysis page
 
@@ -79,7 +79,7 @@ Use a 16:9 canvas and an F-pattern layout.
 4. Add an annual column chart using Total Reviews.
 5. Add a line chart for Reviews YTD by month.
 6. Add a line chart for Reviews YoY % by year.
-7. Use the visible report-page tabs to navigate back to Overview.
+7. Add a Page Navigator to navigate back to Overview.
 
 ## 9. Validate and export screenshots
 
