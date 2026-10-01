@@ -6,25 +6,34 @@ Use Import mode to load `data/apps.csv` and `data/reviews.csv`.
 
 ## 2. Clean `apps`
 
-In Power Query:
+In Power Query, the submitted `apps` query shows these Applied Steps:
 
-1. Set `app_id` to Whole Number.
-2. Apply **Trim** to `app_name` and `developer`.
-3. Replace nulls and empty strings in `developer` with `Unknown Developer`.
-4. Apply **Capitalize Each Word** to `category_name`; standardize `Seo` as `SEO`.
-5. Set `launch_date` to Date using locale **English (United States)**.
-6. Set `has_free_plan` to Text.
-7. Set `monthly_price_usd` to Decimal Number.
+1. `Source`
+2. `Promoted Headers`
+3. `Set Initial Types`
+4. `Trimmed App and Developer`
+5. `Replaced Missing Developers`
+6. `Standardized Categories`
+7. `Converted Launch Date`
+8. `Reviewed Final Types`
+
+These steps trim `app_name` and `developer`, replace blank or null developers with `Unknown Developer`, standardize category labels (including `SEO`), parse `launch_date`, and apply the required final data types. `monthly_price_usd` is Currency and `app_id` is Whole Number.
 
 ## 3. Clean `reviews`
 
-In Power Query:
+In Power Query, the submitted `reviews` query shows these Applied Steps:
 
-1. Set `review_id`, `app_id`, `rating`, and `helpful_count` to Whole Number.
-2. Remove duplicates using `review_id`.
-3. Filter `rating` to values from 1 through 5.
-4. Set `posted_at` to Date using locale **English (United States)**.
-5. Replace `Yes` with `1` and `No` with `0` in `has_developer_reply`, then set it to Whole Number.
+1. `Source`
+2. `Promoted Headers`
+3. `Set Initial Types`
+4. `Trimmed Reply Values`
+5. `Removed Duplicate Reviews`
+6. `Kept Ratings 1 to 5`
+7. `Converted Posted Date`
+8. `Converted Reply Yes No to 1 0`
+9. `Reviewed Final Types`
+
+These steps trim and normalize reply values, remove duplicate `review_id` values, keep ratings from 1 through 5, convert both source date formats in `posted_at`, map Yes/No to `1/0`, and apply the required final data types.
 
 After these steps, the expected review count is **7,980**.
 
@@ -58,7 +67,7 @@ Expected KPI results:
 - Total Apps: **500**
 - Total Reviews: **7,980**
 - Average Rating: **4.19**
-- Developer Reply %: **25.6%**
+- Developer Reply %: **24.8%**
 
 ## 7. Build the Overview page
 

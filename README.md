@@ -8,7 +8,7 @@
 
 ### Key insight
 
-Marketplace review activity is growing quickly, but developer engagement has not kept pace. The dashboard's year-over-year KPI is **91.1%**, and 2024 has the highest annual review volume in the series. **25.6%** of valid reviews received a developer reply.
+Marketplace review activity is growing quickly, but developer engagement has not kept pace. The dashboard's year-over-year KPI is **91.1%**, and 2024 has the highest annual review volume in the series. **24.8%** of valid reviews received a developer reply.
 
 SEO is the highest-volume category, followed by Reviews and Ratings and Sales and Conversion. BrilliantPilot Pro is the most-reviewed individual app. The overall average rating is 4.19 out of 5.
 
@@ -56,14 +56,41 @@ See `screenshots/model_view.png` for the relationship diagram.
 
 ## Data preparation
 
-The model applies these Power Query transformations:
+The submitted PBIX applies these transformations directly in Power Query. The visible Applied Steps are listed below so the implementation can be checked against the report file.
+
+### `apps` query
+
+1. `Source`
+2. `Promoted Headers`
+3. `Set Initial Types`
+4. `Trimmed App and Developer` — trims `app_name` and `developer`.
+5. `Replaced Missing Developers` — replaces blank or null developer names with `Unknown Developer`.
+6. `Standardized Categories` — trims category text, applies consistent title case, and standardizes `SEO`.
+7. `Converted Launch Date` — converts `launch_date` to Date.
+8. `Reviewed Final Types` — applies the required identifier, text, date, and currency types.
+
+### `reviews` query
+
+1. `Source`
+2. `Promoted Headers`
+3. `Set Initial Types`
+4. `Trimmed Reply Values`
+5. `Removed Duplicate Reviews` — keeps one row per `review_id`.
+6. `Kept Ratings 1 to 5` — filters out ratings outside the valid range.
+7. `Converted Posted Date` — converts both source date formats in `posted_at` to Date.
+8. `Converted Reply Yes No to 1 0` — maps Yes to `1` and No to `0`.
+9. `Reviewed Final Types` — sets IDs, rating, reply flag, and helpful count to Whole Number and `posted_at` to Date.
+
+The refreshed model contains **500 apps** and **7,980 valid, deduplicated reviews**. `has_developer_reply` contains only `0` and `1`, and the corresponding measure uses `AVERAGE(reviews[has_developer_reply])`, producing **24.8%**.
+
+The cleaning covers all required fields:
 
 - Trim `app_name` and `developer`.
 - Replace blank or null developer names with `Unknown Developer`.
-- Capitalize category names consistently.
+- Standardize category names consistently, including `SEO`.
 - Remove duplicate reviews by `review_id`.
 - Keep only ratings from 1 through 5.
-- Parse `posted_at` using locale-aware date conversion.
+- Parse both source formats in `posted_at` and convert the result to Date.
 - Convert `has_developer_reply` from Yes/No to 1/0.
 - Set identifiers, dates, whole numbers, and decimal values to appropriate types.
 
@@ -84,7 +111,9 @@ shopify-app-store-analysis/
 └── screenshots/
     ├── overview_page.png
     ├── trend_analysis_page.png
-    └── model_view.png
+    ├── model_view.png
+    ├── apps_power_query_steps.png
+    └── reviews_power_query_steps.png
 ```
 
 ## Supporting analysis
